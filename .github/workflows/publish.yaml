@@ -1,24 +1,24 @@
 name: Publish package to GitHub Packages
 on:
-    release:
-        types: [published]
+  release:
+    types: [published]
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        permissions:
-            contents: read
-            packages: write
-        steps:
-            - uses: actions/checkout@v4
-            # Setup .npmrc file to publish to GitHub Packages
-            - uses: oven-sh/setup-bun@v1
-              with:
-                  registry-url: 'https://npm.pkg.github.com'
-                  # Defaults to the user or organization that owns the workflow file
-                  scope: '@livtoff'
-            - run: git config --global user.email "deployer@livtoff.com"
-            - run: git config --global user.name "Deployer - Livtoff"
-            - run: export NPM_TOKEN_LIVTOFF_VUE3="${{ secrets.NPM_TOKEN_LIVTOFF_VUE3 }}" bun install
-            - run: bun run build && npm publish --new-version ${{ github.ref_name }}
-              env:
-                  BUN_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: oven-sh/setup-bun@v2
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@livtoff'
+      - run: git config --global user.email "deployer@livtoff.com"
+      - run: git config --global user.name "Deployer - Livtoff"
+      - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" bun install
+      - run: bun run build && npm publish --new-version ${{ github.ref_name }}
+        env:
+          BUN_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
