@@ -14,7 +14,7 @@
     "src"
   ],
   "main": "dist/livtoff-ui.js",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "type": "module",
   "scripts": {
     "dev": "vite",
