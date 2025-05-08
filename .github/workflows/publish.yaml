@@ -21,7 +21,7 @@ jobs:
       - run: rm bun.lock
       - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" && bun i && bun i typescript
       - run: bun run build
-      - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" && npm publish
+      - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" && npm publish --new-version ${{ github.ref_name }}
         # - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" && npm install
         # - run: npm run build && npm publish --new-version ${{ github.ref_name }}
         env:
