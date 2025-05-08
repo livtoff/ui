@@ -1,2 +1,0 @@
-[install.scopes]
-"@livtoff" = { token = "$NPM_TOKEN_LIVTOFF_VUE3", url = "https://npm.pkg.github.com/" }
