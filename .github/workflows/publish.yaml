@@ -11,14 +11,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: oven-sh/setup-bun@v2
+      - uses: oven-sh/setup-bun@v1
         with:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@livtoff'
       - run: git config --global user.email "deployer@livtoff.com"
       - run: git config --global user.name "Deployer - Livtoff"
-      - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" bun i && bun i typescript
-      - run: bun run build && npm publish --new-version ${{ github.ref_name }}
+      - run: rm bun.lockb
+      - run: rm package-lock.json
+      - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" && bun i && bun i typescript
+      - run: bun run build
+      - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" && npm publish
+        # - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" && npm install
+        # - run: npm run build && npm publish --new-version ${{ github.ref_name }}
         env:
           BUN_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN_LIVTOFF_UI: ${{ secrets.NPM_TOKEN_LIVTOFF_UI }}
