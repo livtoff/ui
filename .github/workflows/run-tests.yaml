@@ -15,4 +15,4 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@livtoff'
       - name: Install Dependencies
-        run: bun install && bun run build
+        run: bun i && bun i typescript && bun run build

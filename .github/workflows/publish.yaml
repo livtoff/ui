@@ -18,6 +18,7 @@ jobs:
           scope: '@livtoff'
       - run: git config --global user.email "deployer@livtoff.com"
       - run: git config --global user.name "Deployer - Livtoff"
-      - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" bun i && bun i typescript && bun run build && npm publish --new-version ${{ github.ref_name }}
+      - run: export NPM_TOKEN_LIVTOFF_UI="${{ secrets.NPM_TOKEN_LIVTOFF_UI }}" bun i && bun i typescript
+      - run: bun run build && npm publish --new-version ${{ github.ref_name }}
         env:
           BUN_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
