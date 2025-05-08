@@ -14,11 +14,12 @@
     "src"
   ],
   "main": "dist/livtoff-ui.js",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
+    "build-watch": "vue-tsc -b && vite build --watch",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
