@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { userEvent, within, expect } from '@storybook/test';
 
-import Button from './Button.vue';
+import Button from '@/components/ui/Button/Button.vue';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
