@@ -14,7 +14,15 @@
     "src"
   ],
   "main": "dist/livtoff-ui.js",
-  "version": "0.0.20",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/livtoff-ui.js"
+      }
+    }
+  },
+  "version": "0.0.21",
   "type": "module",
   "scripts": {
     "dev": "vite",
