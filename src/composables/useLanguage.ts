@@ -1,4 +1,4 @@
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import { usePage } from '@inertiajs/vue3';
 import type { PageProps } from '@inertiajs/core';
 import { setCookie } from './useCookie';
