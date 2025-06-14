@@ -10,6 +10,8 @@ interface Props extends PrimitiveProps {
   class?: HTMLAttributes['class'];
 }
 
+export type { Props };
+
 const props = withDefaults(defineProps<Props>(), {
   as: 'button',
 });

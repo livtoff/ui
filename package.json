@@ -14,7 +14,7 @@
     "src"
   ],
   "main": "dist/livtoff-ui.js",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -58,6 +58,7 @@
     "storybook": "^8.6.14",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.1.4",
     "vue-tsc": "^2.2.10"
   },
